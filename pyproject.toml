@@ -1,0 +1,43 @@
+[project]
+name = "ipum-lab01-hw"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "clean-text>=0.7.1",
+    "joblib>=1.5.3",
+    "scikit-learn>=1.8.0",
+    "sentence-transformers>=5.3.0",
+    "torch>=2.11.0",
+    "torchaudio>=2.11.0",
+    "torchvision>=0.26.0",
+]
+
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchaudio = [
+  { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
+    "ruff>=0.15.8",
+]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
