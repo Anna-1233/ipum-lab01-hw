@@ -5,7 +5,7 @@ It uses a Sentence Transformer model to generate embeddings and Logistic Regress
 for final classification.
 
 ### 1. Model Preparation (Required)
-Model are excluded from this repository due to their size. 
+Models are excluded from this repository due to their size. 
 They must be added to project structure before running the application:
 - download 2 models from Google Drive: https://drive.google.com/file/d/1NRZdYq5jweVRUzAZG518LMhs4E56IgxG/view?usp=share_link
 - create a folder named model/ in the project root
