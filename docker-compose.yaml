@@ -1,0 +1,22 @@
+services:
+  sentiment-api:
+    build: .
+    ports:
+      - "8000:8000"
+    develop:
+      # Watch configuration for development
+      # Syncs code changes without rebuilding the image
+      watch:
+        # Sync the working directory with /app in container
+        - action: sync
+          path: .
+          target: /app
+          # Exclude the virtual environment (platform-specific)
+          ignore:
+            - .venv/
+            - tests/
+            - report_from_tests.html
+            - api/test_app.http
+        # Rebuild image when dependencies change
+        - action: rebuild
+          path: ./pyproject.toml

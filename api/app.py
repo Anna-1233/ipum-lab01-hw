@@ -38,6 +38,11 @@ class SentimentResponse(BaseModel):
     prediction: str
 
 
+@app.get("/")
+def home():
+    return {"message": "Sentiment Analysis API. Go to /docs for Swagger UI."}
+
+
 @app.post("/predict")
 def predict_sentiment(request: SentimentRequest) -> SentimentResponse:
     embedding_vector = transformer.encode([request.text])
