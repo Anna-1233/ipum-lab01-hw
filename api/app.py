@@ -1,6 +1,6 @@
 import joblib
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 from sentence_transformers import SentenceTransformer
 
 
@@ -24,6 +24,14 @@ app = FastAPI(title="Sentiment Analysis API")
 
 class SentimentRequest(BaseModel):
     text: str
+
+    @field_validator("text")
+    def validate_text(cls, v):
+        v = v.strip()
+        if not v:
+            raise ValueError("text cannot be empty or whitespace")
+
+        return v
 
 
 class SentimentResponse(BaseModel):

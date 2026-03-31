@@ -16,6 +16,14 @@ dependencies = [
     "uvicorn>=0.42.0",
 ]
 
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
+    "pytest>=9.0.2",
+    "pytest-html>=4.2.0",
+    "ruff>=0.15.8",
+]
 
 [[tool.uv.index]]
 name = "pytorch-cu130"
@@ -33,12 +41,6 @@ torchaudio = [
   { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 
-[dependency-groups]
-dev = [
-    "mypy>=1.19.1",
-    "pre-commit>=4.5.1",
-    "ruff>=0.15.8",
-]
 
 [tool.mypy]
 python_version = "3.12"
